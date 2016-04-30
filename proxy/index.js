@@ -111,7 +111,7 @@ exports.route = function (app) {
         client: client
       }, function (oaErr, strData, oaRes) {
         // Merge headers in, but don't overwrite any existing headers
-        if (oaRes.headers) {
+        if (oaRes && oaRes.headers) {
           res.set(_.defaults({}, res._headers, exports.filterHeaders(oaRes.headers)));
         }
 
